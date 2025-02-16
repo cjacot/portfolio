@@ -225,17 +225,17 @@ const validateForm = (): boolean => {
   <div class="flex justify-center items-center min-h-screen bg-[#FFFCF6]">
     <CustomCursor />
     <PortfolioHeader />
-    <div class="w-[615px] h-[790px] my-32 bg-white rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] p-8 flex flex-col items-center">
-      <h1 class="text-black text-2xl mb-8 flex items-center gap-2">
+    <div class="w-full max-w-[615px] mx-4 my-8 md:my-32 bg-white rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] p-4 md:p-8 flex flex-col items-center">
+      <h1 class="text-black text-xl md:text-2xl mb-6 md:mb-8 flex items-center gap-2">
         Me contacter ici 
         <img 
           :src="ContactFormDownArrow" 
           alt="Flèche vers le bas" 
-          class="w-6 h-6 animate-float"
+          class="w-5 h-5 md:w-6 md:h-6 animate-float"
         >
       </h1>
 
-      <form @submit.prevent="handleSubmit" class="w-full flex flex-col items-center gap-6">
+      <form @submit.prevent="handleSubmit" class="w-full flex flex-col items-center gap-4 md:gap-6">
         <div class="w-full flex flex-col items-center">
           <input 
             v-model="formData.name"
@@ -244,10 +244,10 @@ const validateForm = (): boolean => {
             name="name"
             placeholder="Nom et Prénom"
             autocomplete="name"
-            class="w-[478.652px] h-[48.031px] rounded-[5px] border border-black bg-white text-black/50 font-roboto text-[20px] font-extralight px-4"
+            class="w-full max-w-[478.652px] h-[48.031px] rounded-[5px] border border-black bg-white text-black/50 font-roboto text-[16px] md:text-[20px] font-extralight px-4"
             :class="{ 'border-red-500': errors.name }"
           >
-          <span v-if="errors.name" class="text-red-500 text-sm mt-1 self-start ml-12">{{ errors.name }}</span>
+          <span v-if="errors.name" class="text-red-500 text-sm mt-1 self-start ml-4 md:ml-12">{{ errors.name }}</span>
         </div>
 
         <div class="w-full flex flex-col items-center">
@@ -258,10 +258,10 @@ const validateForm = (): boolean => {
             name="email"
             placeholder="Email"
             autocomplete="email"
-            class="w-[478.652px] h-[48.031px] rounded-[5px] border border-black bg-white text-black/50 font-roboto text-[20px] font-extralight px-4"
+            class="w-full max-w-[478.652px] h-[48.031px] rounded-[5px] border border-black bg-white text-black/50 font-roboto text-[16px] md:text-[20px] font-extralight px-4"
             :class="{ 'border-red-500': errors.email }"
           >
-          <span v-if="errors.email" class="text-red-500 text-sm mt-1 self-start ml-12">{{ errors.email }}</span>
+          <span v-if="errors.email" class="text-red-500 text-sm mt-1 self-start ml-4 md:ml-12">{{ errors.email }}</span>
         </div>
 
         <div class="w-full flex flex-col items-center">
@@ -270,24 +270,24 @@ const validateForm = (): boolean => {
             id="message"
             name="message"
             placeholder="Votre message"
-            class="w-[478.652px] h-[329.047px] rounded-[5px] border border-black bg-white text-black/50 font-roboto text-[20px] font-extralight p-4 resize-none"
+            class="w-full max-w-[478.652px] h-[250px] md:h-[329.047px] rounded-[5px] border border-black bg-white text-black/50 font-roboto text-[16px] md:text-[20px] font-extralight p-4 resize-none"
             :class="{ 'border-red-500': errors.message }"
           ></textarea>
-          <span v-if="errors.message" class="text-red-500 text-sm mt-1 self-start ml-12">{{ errors.message }}</span>
+          <span v-if="errors.message" class="text-red-500 text-sm mt-1 self-start ml-4 md:ml-12">{{ errors.message }}</span>
         </div>
 
-        <div class="relative ml-8 self-start max-w-full text-3xl font-light w-[96px]">
+        <div class="relative self-start ml-4 md:ml-8 max-w-full text-2xl md:text-3xl font-light w-[96px]">
           <div 
             class="absolute top-[5px] left-[5px] w-full h-full bg-black"
             :style="{
               transform: isHovering ? `translate(${buttonPos.x}px, ${buttonPos.y}px)` : 'none',
               transition: isHovering ? 'none' : 'transform 0.3s ease-out'
             }"
-            ></div>
+          ></div>
             
-            <button 
+          <button 
             type="submit"
-            class="contact-button relative w-full h-[49px] bg-[#91A8EC] border border-black hover:bg-[#7A8FD9] focus:outline-none focus:ring-2 focus:ring-black text-lg"
+            class="contact-button relative w-full h-[45px] md:h-[49px] bg-[#91A8EC] border border-black hover:bg-[#7A8FD9] focus:outline-none focus:ring-2 focus:ring-black text-base md:text-lg"
             @mouseenter="isHovering = true"
             @mouseleave="resetButton"
             @mousemove="handleMouseMove"
@@ -301,7 +301,6 @@ const validateForm = (): boolean => {
         </div>
       </form>
     </div>
-    
   </div>
   <Footer />
 </template>
@@ -323,5 +322,16 @@ input:focus, textarea:focus {
 
 .animate-float {
   animation: float 2s ease-in-out infinite;
+}
+
+/* Add responsive styles */
+@media (max-width: 640px) {
+  input, textarea {
+    font-size: 16px; /* Prevent zoom on mobile */
+  }
+  
+  .contact-button {
+    width: 90px; /* Slightly smaller button on mobile */
+  }
 }
 </style> 
