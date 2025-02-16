@@ -9,32 +9,32 @@ const toggleMenu = () => {
   isOpen.value = !isOpen.value
 }
 
-const scrollToSection = async (sectionId: string) => {
-  // Close the menu first
+const navigateTo = async (item: { id: string; url: string }) => {
   isOpen.value = false
   
-  // If we're not on the home page, navigate there first
-  if (router.currentRoute.value.path !== '/') {
-    await router.push('/')
-    // Wait for the navigation and DOM update
-    await new Promise(resolve => setTimeout(resolve, 100))
-  }
-  
-  // Find the element and scroll to it
-  const element = document.getElementById(sectionId)
-  if (element) {
-    element.scrollIntoView({ 
-      behavior: 'smooth',
-      block: 'start'
-    })
+  if (item.id === 'about') {
+    await router.push('/about')
+  } else {
+    // For other menu items that need scrolling
+    if (router.currentRoute.value.path !== '/') {
+      await router.push('/')
+      await new Promise(resolve => setTimeout(resolve, 100))
+    }
+    const element = document.getElementById(item.id)
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
   }
 }
 
 // Menu items with their corresponding section IDs
 const menuItems = [
-  { label: 'Projets', id: 'projects', url: '/portfolio_camille/#projects' },
-  { label: 'À propos', id: 'about', url: '/portfolio_camille/about' },
-  { label: 'CV', id: 'cv', url: '/portfolio_camille/' }
+  { label: 'Projets', id: 'projects', url: '/#projects' },
+  { label: 'À propos', id: 'about', url: '/about' },
+  { label: 'CV', id: 'cv', url: '/#cv' }
 ]
 </script>
 
@@ -87,7 +87,7 @@ const menuItems = [
             v-for="item in menuItems" 
             :key="item.id"
             :href="item.url"
-            @click.prevent="scrollToSection(item.id)"
+            @click.prevent="navigateTo(item)"
             class="font-['Roboto'] text-[20px] font-light text-black hover:underline py-2"
           >
             {{ item.label }}
