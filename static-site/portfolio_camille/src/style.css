@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  html {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  body {
+    @apply bg-[#FFFCF6];
+    color: #1E1E1E;
+  }
+}
+
+/* Custom components */
+@layer components {
+  .page-transition-enter-active,
+  .page-transition-leave-active {
+    transition: opacity 0.3s ease;
+  }
+
+  .page-transition-enter-from,
+  .page-transition-leave-to {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,517 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Redesign d'une Infolettre",
+      "description": "Amélioration UX d'une infolettre pour accroître l'engagement client",
+      "preview_image": "previews/preview_infolettre.png",
+      "main_image": "Redesign_dune_infolettre_pour_une_entreprise_de_vente_de_vêtements_québécoise.png",
+      "role": "Designer UX/UI",
+      "problem": "Les abonnés de l'infolettre de cette entreprise québécoise de vêtements sont souvent submergés par la quantité de contenu et de liens proposés, ce qui entraîne un comportement de clic dispersé et aléatoire. Bien que l'infolettre bénéficie d'un bon taux d'ouverture, les utilisateurs peinent à naviguer efficacement vers les produits ou catégories clés, diminuant ainsi l'impact des campagnes marketing.",
+      "solution": "Concevoir une version révisée de l'infolettre avec une mise en page simplifiée, des appels à l'action stratégiques, et des éléments visuels épurés. Cette nouvelle approche permet de guider l'attention des utilisateurs vers les produits prioritaires, de rendre l'expérience de lecture plus fluide et de renforcer l'engagement en ligne.",
+      "software_used": "Figma, Adobe Photoshop",
+      "scorecards": [
+        {
+          "id": 2,
+          "project_id": 2,
+          "title": "Refinement d'Infolettre Mode",
+          "description": "Amélioration UX d'une infolettre pour accroître l'engagement client",
+          "preview_image": "previews/preview_infolettre.png",
+          "imageAlt": "Aperçu du projet",
+          "order": 0
+        }
+      ],
+      "design_steps": [
+        {
+          "id": 6,
+          "project_id": 1,
+          "step_type": "empathy",
+          "custom_description": "Comprendre les comportements et attentes des utilisateurs",
+          "content_blocks": [
+            {
+              "id": 24,
+              "design_step_id": 6,
+              "block_type": "text",
+              "layout": "full",
+              "group": 0,
+              "order": 0,
+              "text_content": "##Contexte et Observations\r\nEn analysant les newsletters, j'ai remarqué que les utilisateurs étaient parfois perdus face à la quantité d'options de clic. Beaucoup d'entre eux semblaient utiliser l'infolettre comme un moyen de naviguer vers le site web sans réelle intention d'achat, faute de CTAs clairs.\r\n\r\n##Insights\r\nLes utilisateurs pourraient être mieux servis par une interface moins surchargée et des CTAs plus ciblés, en fonction de l'étape du parcours client (découverte, intérêt, considération, décision).",
+              "image": "",
+              "image_caption": null
+            },
+            {
+              "id": 25,
+              "design_step_id": 6,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 1,
+              "text_content": "",
+              "image": "content_blocks/infolettre_original.png",
+              "image_caption": "Infolettre originale"
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "project_id": 2,
+          "step_type": "definition",
+          "custom_description": "Définir les problématiques spécifiques à résoudre pour orienter le design.",
+          "content_blocks": [
+            {
+              "id": 26,
+              "design_step_id": 7,
+              "block_type": "text",
+              "layout": "full",
+              "group": 0,
+              "order": 0,
+              "text_content": "##Problématique\r\n- Problème principal : Le manque de clarté et l'abondance de choix rendent l'infolettre inefficace en tant qu'outil de conversion.\r\n- Hypothèse : En simplifiant la mise en page et en créant des CTAs plus stratégiques, il serait possible de diriger les clics vers les produits prioritaires, comme les nouvelles collections ou les articles les plus performants.",
+              "image": "",
+              "image_caption": null
+            },
+            {
+              "id": 27,
+              "design_step_id": 7,
+              "block_type": "text",
+              "layout": "full",
+              "group": 0,
+              "order": 1,
+              "text_content": "##Développement de Persona\r\nA partir de mes recherches, j'ai créé un persona principal pour mieux cibler les solutions",
+              "image": "",
+              "image_caption": null
+            },
+            {
+              "id": 28,
+              "design_step_id": 7,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 2,
+              "text_content": "",
+              "image": "content_blocks/personna_infolettre.png",
+              "image_caption": null
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "project_id": 2,
+          "step_type": "ideation",
+          "custom_description": "Explorer différentes solutions de design",
+          "content_blocks": [
+            {
+              "id": 29,
+              "design_step_id": 8,
+              "block_type": "text",
+              "layout": "full",
+              "group": 0,
+              "order": 0,
+              "text_content": "##Approches envisagées\r\nMise en page simplifiée : Réduire la longueur de l'infolettre en condensant les informations et en adoptant une présentation linéaire minimaliste.\r\nCTAs stratégiques : Introduire un CTA principal plus visible en augmentant sa taille, en utilisant une couleur contrastante et en orientant le regard du lecteur avec des éléments graphiques.\r\nContenu visuel ciblé : Limiter le nombre d'images à une seule pour chaque section et inclure une \"pause visuelle\" sans texte ni CTA, permettant aux utilisateurs de mieux assimiler les éléments clés de la collection.\r\nHighlight de produit performant : Mettre en avant un article populaire",
+              "image": "",
+              "image_caption": null
+            },
+            {
+              "id": 30,
+              "design_step_id": 8,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 1,
+              "text_content": "",
+              "image": "content_blocks/premiers_wireframe_infolettre.png",
+              "image_caption": "Premiers wireframes"
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "project_id": 2,
+          "step_type": "prototype",
+          "custom_description": "Conception de la nouvelle infolettre",
+          "content_blocks": [
+            {
+              "id": 31,
+              "design_step_id": 9,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 0,
+              "text_content": "",
+              "image": "content_blocks/Design_final_infolettre.png",
+              "image_caption": "Design final"
+            },
+            {
+              "id": 32,
+              "design_step_id": 9,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 1,
+              "text_content": "",
+              "image": "content_blocks/avant_apres_banniere_infolettre.png",
+              "image_caption": "Mise en page plus simple sur une seule ligne, design minimaliste pour les logos et lien hypertexte pour le retour gratuit"
+            },
+            {
+              "id": 33,
+              "design_step_id": 9,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 2,
+              "text_content": "",
+              "image": "content_blocks/avant_apres_boutons_banniere_infolettre.png",
+              "image_caption": "Ligne de séparation entre les catégories pour indiquer à l'utilisateur qu'elles sont cliquables  De couleur rose assortie au héros principal, elle est le personnage qui nous introduit dans la collecti"
+            },
+            {
+              "id": 34,
+              "design_step_id": 9,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 3,
+              "text_content": "",
+              "image": "content_blocks/avant_apres_contenu_1_infolettre.png",
+              "image_caption": "En utilisant photoshop, le personnage principal est retiré de l'arrière-plan, remplacé par une couleur sobre qui s'estompe avec le rose qui l'entoure Un CTA clair, des mots forts, après avoir montré l"
+            },
+            {
+              "id": 35,
+              "design_step_id": 9,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 4,
+              "text_content": "",
+              "image": "content_blocks/avant_apres_contenu_2_infolettre.png",
+              "image_caption": "En examinant plusieurs newsletters de magasin de vente de vêtements mode, j'ai remarqué qu'il était courant d'inclure une image claire sans texte ni CTA. Cette approche offre une pause visuelle entre"
+            },
+            {
+              "id": 36,
+              "design_step_id": 9,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 5,
+              "text_content": "",
+              "image": "content_blocks/avant_apres_contenu_3_infolettre.png",
+              "image_caption": "remplacement des quatres photos par une seule, design minimaliste, CTA clair."
+            },
+            {
+              "id": 37,
+              "design_step_id": 9,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 6,
+              "text_content": "",
+              "image": "content_blocks/avant_apres_contenu_4_infolettre.png",
+              "image_caption": "Ce manteau devrait avoir l'un des taux de clics les plus élevés, J'ai donc mis en valeur le produit avec deux vues différentes et un CTA clair qui renvoie à ce manteau spécifique. J'ai ajouté le texte"
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "project_id": 2,
+          "step_type": "testing",
+          "custom_description": "Validation du Prototype",
+          "content_blocks": [
+            {
+              "id": 38,
+              "design_step_id": 10,
+              "block_type": "text",
+              "layout": "full",
+              "group": 0,
+              "order": 0,
+              "text_content": "Méthode de test : Un test A/B sur 4 participants a été lancé pour comparer le taux de clics entre l'ancienne version de l'infolettre et la nouvelle version redéfinie.\r\n\r\nRésultats : Le redesign a montré une augmentation des clics intentionnels sur les CTAs principaux, avec une meilleure focalisation des utilisateurs sur les articles mis en avant. Le test a confirmé que la réduction des éléments visuels non essentiels et la simplification des options de clic conduisaient à une meilleure clarté pour les utilisateurs.",
+              "image": "",
+              "image_caption": null
+            },
+            {
+              "id": 39,
+              "design_step_id": 10,
+              "block_type": "text",
+              "layout": "full",
+              "group": 1,
+              "order": 0,
+              "text_content": "##Conclusion\r\n\r\nCe projet était amusant à réaliser, la problématique des CTAs était un bon challenge et m'a permis d'avoir une approche plus ciblée sur la vente dans un contexte de design.",
+              "image": "",
+              "image_caption": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "WhiskerBox",
+      "description": "Application de livraison de nourriture pour chat optimisée UX",
+      "preview_image": "previews/preview_whiskerbox.png",
+      "main_image": "WhiskerBox.png",
+      "role": "Product Designer UX/UI",
+      "problem": "Les propriétaires de chats rencontrent des difficultés pour choisir et commander de la nourriture adaptée aux besoins spécifiques de leurs animaux. L'offre abondante rend la sélection complexe, surtout pour ceux ayant des sensibilités alimentaires, et les options de livraison actuelles manquent souvent de personnalisation.",
+      "solution": "Concevoir WhiskerBox, une application de livraison de nourriture pour chats qui propose une sélection personnalisée et un processus de commande intuitif, permettant aux utilisateurs de trouver facilement des produits adaptés et de suivre leurs commandes en temps réel.",
+      "software_used": "Figma, Adobe Photoshop",
+      "scorecards": [
+        {
+          "id": 1,
+          "project_id": 3,
+          "title": "Application de livraison",
+          "description": "Optimisation UX pour l'achat de nourriture pour chat",
+          "preview_image": "previews/preview_whiskerbox.png",
+          "imageAlt": "Aperçu du projet",
+          "order": 1
+        }
+      ],
+      "design_steps": [
+        {
+          "id": 1,
+          "project_id": 2,
+          "step_type": "definition",
+          "custom_description": "Établir les besoins et problèmes des utilisateurs",
+          "content_blocks": [
+            {
+              "id": 2,
+              "design_step_id": 1,
+              "block_type": "text",
+              "layout": "full",
+              "group": 0,
+              "order": 0,
+              "text_content": "##Développement de Persona\r\nÀ partir de mes recherches, j'ai créé un persona principal pour mieux cibler les fonctionnalités de l'application.",
+              "image": "",
+              "image_caption": null
+            },
+            {
+              "id": 3,
+              "design_step_id": 1,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 1,
+              "text_content": "",
+              "image": "steps/personna.png",
+              "image_caption": null
+            },
+            {
+              "id": 4,
+              "design_step_id": 1,
+              "block_type": "text",
+              "layout": "full",
+              "group": 0,
+              "order": 2,
+              "text_content": "##Énoncés de problèmes\r\n\r\nPour guider le développement de l'application, j'ai formulé plusieurs déclarations \"How Might We\" (Comment pourrions-nous) :",
+              "image": "",
+              "image_caption": null
+            },
+            {
+              "id": 5,
+              "design_step_id": 1,
+              "block_type": "text",
+              "layout": "full",
+              "group": 0,
+              "order": 3,
+              "text_content": "- Comment pourrions-nous simplifier le processus de sélection de produits pour éviter toute confusion ?\r\n- Comment pourrions-nous personnaliser les recommandations de nourriture en fonction des besoins spécifiques du chat ?\r\n- Comment pourrions-nous offrir des informations utiles et faciles d'accès pour aider les propriétaires à faire des choix éclairés ?",
+              "image": "",
+              "image_caption": null
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "project_id": 3,
+          "step_type": "empathy",
+          "custom_description": "Comprendre les besoins des utilisateurs",
+          "content_blocks": [
+            {
+              "id": 1,
+              "design_step_id": 2,
+              "block_type": "text",
+              "layout": "full",
+              "group": 0,
+              "order": 0,
+              "text_content": "## Contexte et Observations\r\nPour concevoir une expérience pertinente, il était essentiel de comprendre les habitudes et défis des propriétaires de chats lorsqu'ils achètent de la nourriture. D'après des recherches générales et des discussions, plusieurs points clés se sont dégagés.\r\n\r\n## Préoccupations de santé\r\nDe nombreux propriétaires sont soucieux de la santé de leurs chats, notamment pour les chats avec des sensibilités alimentaires, ce qui rend le choix de produits délicat.\r\n\r\n## Recherche d'informations\r\nAvant de choisir une marque, les propriétaires se renseignent souvent via des avis en ligne, des recommandations vétérinaires ou des influenceurs pour trouver des produits fiables.\r\n\r\n## Commodité et accessibilité\r\nLa livraison est prisée pour gagner du temps, mais les utilisateurs veulent une expérience simple qui leur permette de trouver et commander rapidement des produits adaptés.\r\n\r\n## Objectifs Utilisateur\r\nCes observations ont permis d'identifier des besoins essentiels pour l'application : un accès facile aux produits adaptés, des recommandations personnalisées, et une commande intuitive avec suivi en temps réel.",
+              "image": "",
+              "image_caption": null
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "project_id": 3,
+          "step_type": "ideation",
+          "custom_description": "Création du cadre de solutions",
+          "content_blocks": [
+            {
+              "id": 6,
+              "design_step_id": 3,
+              "block_type": "text",
+              "layout": "full",
+              "group": 0,
+              "order": 0,
+              "text_content": "##Idéation et Storyboarding\r\n\r\nJ'ai utilisé l'exercice de \"Crazy 8\" pour générer des idées rapides. Au cours de plusieurs sessions, j'ai créé des esquisses pour explorer des solutions possibles.",
+              "image": "",
+              "image_caption": null
+            },
+            {
+              "id": 8,
+              "design_step_id": 3,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 2,
+              "text_content": "",
+              "image": "steps/Adobe_Scan_09_nov._2024_1_1.png",
+              "image_caption": "Croquis issus de l'exercice Crazy 8"
+            },
+            {
+              "id": 9,
+              "design_step_id": 3,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 3,
+              "text_content": "",
+              "image": "steps/Storyboard_Julie_commande_facilement_la_meilleure_nourriture_pour_Minou_g_BbGGPLz.png",
+              "image_caption": "Storyboard : Julie commande facilement la meilleure nourriture pour Minou grΓce à WhiskerBox"
+            },
+            {
+              "id": 10,
+              "design_step_id": 3,
+              "block_type": "text",
+              "layout": "full",
+              "group": 0,
+              "order": 4,
+              "text_content": "##User Flow\r\n\r\nPour définir le parcours utilisateur, j'ai créé un flux utilisateur qui montre comment Julie naviguerait dans l'application, de la sélection d'un produit à la commande.",
+              "image": "",
+              "image_caption": null
+            },
+            {
+              "id": 11,
+              "design_step_id": 3,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 5,
+              "text_content": "",
+              "image": "steps/User_Flow_commande_de_nourriture_pour_chat_sur_WhiskerBox.png",
+              "image_caption": "User Flow : commande de nourriture pour chat sur WhiskerBox"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "project_id": 3,
+          "step_type": "prototype",
+          "custom_description": "Conception de l'interface",
+          "content_blocks": [
+            {
+              "id": 12,
+              "design_step_id": 4,
+              "block_type": "text",
+              "layout": "full",
+              "group": 0,
+              "order": 0,
+              "text_content": "##Wireframes\r\n\r\nJ'ai conçu des wireframes basse fidélité, en m'inspirant d'applications de livraison comme Uber Eats et PetSmart pour les éléments de navigation et la disposition. Ensuite, j'ai développé un prototype haute fidélité pour tester l'apparence et l'expérience utilisateur.\r\nLes écrans principaux couvrent un chemin utilisateur complet, permettant à l'utilisateur de naviguer depuis la découverte des produits jusqu'à la confirmation de commande :\r\n\r\n- Home Screen : Un écran d'accueil invitant les utilisateurs à explorer les différentes catégories de nourriture pour chats.\r\n- Browsing Screen : Une vue qui permet aux utilisateurs de parcourir les produits disponibles, avec un filtre avancé intégré pour sélectionner les besoins alimentaires spécifiques (comme les allergies ou le type de régime).\r\n- Product Detail Screen : Détails complets du produit, avec des informations sur les ingrédients et des avis clients.\r\n- Cart Screen : Une vue permettant aux utilisateurs de vérifier les articles sélectionnés avant de passer à l'achat.\r\n- Payment Screen : Un processus de paiement simple et sécurisé.\r\n- Confirmation Screen : Un écran confirmant la commande, avec un récapitulatif clair pour l'utilisateur.",
+              "image": "",
+              "image_caption": null
+            },
+            {
+              "id": 14,
+              "design_step_id": 4,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 2,
+              "text_content": "",
+              "image": "steps/Wireframes_du_prototype_basse-fidélité_premier_design_dun_parcours_comple_UMmwUBu.png",
+              "image_caption": "Wireframes du prototype basse-fidélité  premier design d'un parcours complet en 6 écrans"
+            },
+            {
+              "id": 15,
+              "design_step_id": 4,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 3,
+              "text_content": "",
+              "image": "steps/Mockups_du_prototype_haute-fidélité.png",
+              "image_caption": "Mockups du prototype haute-fidélité"
+            },
+            {
+              "id": 16,
+              "design_step_id": 4,
+              "block_type": "text",
+              "layout": "full",
+              "group": 0,
+              "order": 4,
+              "text_content": "##Branding et UI Kit\r\n\r\nPour l'identité visuelle, j'ai choisi des couleurs douces (bleu pastel et beige), inspirées des thèmes animaliers. Les éléments graphiques ludiques comme l'icone chat par portion rappellent l'univers des chats, renforçant ainsi le lien émotionnel avec les utilisateurs. Les couleurs douces combinée avec les formes arrondi des CTA rendent un résulat visuel facile à regarder et reposant pour les yeux.",
+              "image": "",
+              "image_caption": null
+            },
+            {
+              "id": 17,
+              "design_step_id": 4,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 5,
+              "text_content": "",
+              "image": "steps/UI_Kit.png",
+              "image_caption": "UI Kit"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "project_id": 3,
+          "step_type": "testing",
+          "custom_description": "Validation du Prototype",
+          "content_blocks": [
+            {
+              "id": 18,
+              "design_step_id": 5,
+              "block_type": "text",
+              "layout": "full",
+              "group": 0,
+              "order": 0,
+              "text_content": "##Résultats des Tests Utilisateurs\r\n\r\n\r\nJ'ai testé le prototype auprès de 4 participants, qui ont réalisé des tΓches principales incluant la recherche et la commande d'un produit adapté pour un chat ayant des sensibilités alimentaires. Voici les retours principaux :\r\n\r\n- Facilité d'utilisation : Les participants ont trouvé l'application intuitive, mais ont suggéré que les filtres de besoins alimentaires soient plus accessibles dans le Browsing Screen.\r\n- Visibilité des promotions et offres spéciales : Deux participants ont indiqué qu'ils aimeraient voir des promotions ou offres spéciales mises en avant, pour repérer rapidement les bonnes affaires.",
+              "image": "",
+              "image_caption": null
+            },
+            {
+              "id": 19,
+              "design_step_id": 5,
+              "block_type": "text",
+              "layout": "full",
+              "group": 0,
+              "order": 1,
+              "text_content": "##Révisions Prioritaires\r\n\r\nSuite aux retours des tests, j'ai apporté les améliorations suivantes :\r\n\r\n- Refonte du filtre de besoins alimentaires dans le Browsing Screen pour une sélection plus précise, incluant des options pour différents régimes spécifiques aux chats \r\n- Mise en avant des promotions et offres spéciales : Les produits bénéficiant de réductions ou offres spéciales sont désormais signalés par un indicateur visible dans la liste des produits, permettant aux utilisateurs de repérer facilement les bonnes affaires.",
+              "image": "",
+              "image_caption": null
+            },
+            {
+              "id": 22,
+              "design_step_id": 5,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 2,
+              "text_content": "",
+              "image": "steps/Design_des_améliorations_apportées_filtres.png",
+              "image_caption": null
+            },
+            {
+              "id": 23,
+              "design_step_id": 5,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 3,
+              "text_content": "",
+              "image": "steps/Design_des_améliorations_apportées_2.png",
+              "image_caption": "Design des améliorations apportées"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
