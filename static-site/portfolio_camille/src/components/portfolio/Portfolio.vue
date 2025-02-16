@@ -49,12 +49,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col overflow-hidden items-center bg-[#FFFCF6] w-full">
+  <div class="flex flex-col overflow-hidden items-center bg-[#FFFCF6]">
     <CustomCursor />
     <PortfolioHeader />
     <HeroSection />
     
-    <section id="projects" class="w-full my-16 md:my-32 max-w-[1440px] md:px-4 flex flex-col items-center bg-[#FFFCF6]">
+    <section id="projects" class="w-full my-32 max-w-[1440px] px-4 flex flex-col items-center bg-[#FFFCF6]">
       <!-- Loading State -->
       <div v-if="store.loading" class="flex flex-col gap-8 w-full items-center">
         <SkeletonLoader v-for="n in 2" :key="n" class="w-full max-w-[1064px] h-[408px]" />
@@ -66,7 +66,7 @@ onMounted(() => {
       </div>
 
       <!-- Projects Display -->
-      <div v-else class="flex flex-col gap-8 w-full items-center px-0">
+      <div v-else class="flex flex-col gap-8 w-full items-center">
         <router-link 
           v-for="project in store.projects" 
           :key="project.id"
@@ -88,18 +88,10 @@ onMounted(() => {
 </template>
 
 <style scoped>
-/* Add responsive styles */
+/* Add responsive styles if needed */
 @media (max-width: 1064px) {
   .max-w-[1064px] {
     max-width: 100%;
-  }
-}
-
-/* Remove any potential gap on mobile */
-@media (max-width: 768px) {
-  .flex-col {
-    margin-left: 0;
-    margin-right: 0;
   }
 }
 </style> 
