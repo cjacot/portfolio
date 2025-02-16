@@ -12,7 +12,7 @@ const __dirname = resolve(__filename, '..')
 const repo = 'portfolio_camille' // Replace with your actual repository name
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? `/${repo}/` : '/',
+  base: process.env.NODE_ENV === 'production' ? '/portfolio/' : '/',
   server: {
     host: 'localhost',
     port: 5173,
