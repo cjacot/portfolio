@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, watch, onUnmounted } from 'vue'
+import { onMounted, ref, watch, onUnmounted, nextTick } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useProjectStore } from '../store/project'
 import PortfolioHeader from './portfolio/PortfolioHeader.vue'
@@ -74,13 +74,45 @@ const stepColors = {
   'testing': 'bg-[#FFFFFF]'
 }
 
-const scrollToStep = (stepType: string) => {
+const imagesLoaded = ref(0)
+const totalImages = ref(0)
+const isFullyLoaded = ref(false)
+
+const scrollToStep = async (stepType: string) => {
+    // Wait for next tick to ensure DOM is updated
+    await nextTick()
+    
+    // If page isn't fully loaded, wait for images
+    if (!isFullyLoaded.value) {
+        await new Promise((resolve) => {
+            const checkLoading = setInterval(() => {
+                if (isFullyLoaded.value) {
+                    clearInterval(checkLoading)
+                    resolve(true)
+                }
+            }, 100)
+        })
+    }
+
     const element = document.getElementById('step-' + stepType)
     if (element) {
-        element.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
+        // Get the header height to offset the scroll
+        const headerHeight = 84 // Height of your fixed header
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
         })
+    }
+}
+
+// Add image load tracking
+const handleImageLoad = () => {
+    imagesLoaded.value++
+    if (imagesLoaded.value >= totalImages.value) {
+        isFullyLoaded.value = true
     }
 }
 
@@ -89,12 +121,35 @@ onMounted(async () => {
     
     try {
         await store.fetchProject(route.params.id as string)
+        await nextTick()
+        
+        // Count total images
+        const images = document.querySelectorAll('img')
+        totalImages.value = images.length
+        
+        // Add load listeners to all images
+        images.forEach(img => {
+            if (img.complete) {
+                handleImageLoad()
+            } else {
+                img.addEventListener('load', handleImageLoad)
+            }
+        })
+        
     } catch (err) {
         console.error('Erreur lors du chargement du projet:', err)
         error.value = 'Erreur lors du chargement du projet'
     } finally {
         loading.value = false
     }
+})
+
+// Clean up image listeners
+onUnmounted(() => {
+    const images = document.querySelectorAll('img')
+    images.forEach(img => {
+        img.removeEventListener('load', handleImageLoad)
+    })
 })
 
 // Modified scroll animation directive with initial visibility option
