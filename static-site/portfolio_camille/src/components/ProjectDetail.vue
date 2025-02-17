@@ -86,16 +86,25 @@ const scrollToStep = async (stepType: string) => {
     console.log('Found element:', element)
     
     if (element) {
-        console.log('Scrolling to element')
-        element.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
+        // Wait for layout to stabilize
+        if ('requestIdleCallback' in window) {
+            await new Promise(resolve => {
+                requestIdleCallback(() => {
+                    resolve(true)
+                })
+            })
+        } else {
+            await new Promise(resolve => setTimeout(resolve, 100))
+        }
+
+        // Get the header height for offset
+        const headerHeight = 84
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset - headerHeight
+
+        window.scrollTo({
+            top: elementPosition,
+            behavior: 'smooth'
         })
-    } else {
-        console.error(`Element with id 'step-${stepType}' not found. Available IDs:`, 
-            Array.from(document.querySelectorAll('[id^="step-"]'))
-                .map(el => el.id)
-        )
     }
 }
 
