@@ -105,6 +105,8 @@ const scrollToStep = async (stepType: string) => {
             top: offsetPosition,
             behavior: 'smooth'
         })
+    } else {
+        console.error(`Element with id 'step-${stepType}' not found`)
     }
 }
 
@@ -226,6 +228,13 @@ const vLazyLoad = {
     })
   }
 }
+
+// Add this to verify IDs are being set correctly
+watch(() => store.currentProject, (newProject) => {
+    if (newProject?.design_steps) {
+        console.log('Available step IDs:', newProject.design_steps.map(step => 'step-' + step.step_type))
+    }
+}, { immediate: true })
 </script> 
 
 <template>
@@ -341,7 +350,7 @@ const vLazyLoad = {
                     <!-- Design Steps Content with individual animations -->
                     <div v-for="step in store.currentProject.design_steps" 
                          :key="step.id" 
-                         :id="'step-' + step.step_type"
+                         :id="`step-${step.step_type}`"
                          class="mb-12 scroll-mt-32 p-8 rounded-lg"
                          :class="[
                              {
