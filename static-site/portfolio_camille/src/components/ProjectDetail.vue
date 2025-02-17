@@ -123,18 +123,28 @@ onMounted(async () => {
         await store.fetchProject(route.params.id as string)
         await nextTick()
         
-        // Count total images
+        // Load all images immediately
         const images = document.querySelectorAll('img')
         totalImages.value = images.length
         
-        // Add load listeners to all images
-        images.forEach(img => {
-            if (img.complete) {
-                handleImageLoad()
-            } else {
-                img.addEventListener('load', handleImageLoad)
-            }
+        // Create an array of promises for image loading
+        const imageLoadPromises = Array.from(images).map(img => {
+            return new Promise((resolve) => {
+                if (img.complete) {
+                    handleImageLoad()
+                    resolve(true)
+                } else {
+                    img.addEventListener('load', () => {
+                        handleImageLoad()
+                        resolve(true)
+                    }, { once: true })
+                }
+            })
         })
+        
+        // Wait for all images to load
+        await Promise.all(imageLoadPromises)
+        isFullyLoaded.value = true
         
     } catch (err) {
         console.error('Erreur lors du chargement du projet:', err)
@@ -160,11 +170,12 @@ const vScrollAnimate = {
     if (initiallyVisible) {
       el.style.opacity = '1'
       el.style.transform = 'translateY(0)'
-      return // Skip animation for initially visible elements
+      return
     }
 
     // Only apply animation to non-button elements
     if (el.tagName !== 'BUTTON') {
+      // Set initial state
       el.style.opacity = '0'
       el.style.transform = 'translateY(20px)'
       const duration = 0.5 + Math.random() * 0.3
@@ -201,30 +212,13 @@ function getImagePath(path: string): string {
   return imageUrl || ''
 }
 
-// Update lazy load directive to use new image mapping
+// Modify the lazy load directive
 const vLazyLoad = {
   mounted: (el: HTMLImageElement) => {
-    const loadImage = () => {
-      if (el.dataset.src) {
-        el.src = getImagePath(el.dataset.src)
-        el.removeAttribute('data-src')
-      }
+    if (el.dataset.src) {
+      el.src = getImagePath(el.dataset.src)
+      el.removeAttribute('data-src')
     }
-
-    const { isVisible, observer } = useScrollAnimation({ 
-      rootMargin: '50px 0px', 
-      threshold: 0.01 
-    }).observe(el)
-    
-    if (observer) {
-      observers.value.push(observer)
-    }
-    
-    watch(isVisible, (value) => {
-      if (value) {
-        loadImage()
-      }
-    })
   }
 }
 
@@ -267,8 +261,7 @@ watch(() => store.currentProject, (newProject) => {
 
                 <div v-scroll-animate="{ initiallyVisible: true }" class="flex justify-center mb-12">
                     <img v-if="store.currentProject.main_image" 
-                         v-lazy-load
-                         :data-src="store.currentProject.main_image" 
+                         :src="store.currentProject.main_image" 
                          :alt="store.currentProject.title"
                          class="w-full max-w-[952px] max-h-[381px] object-cover rounded-lg shadow-lg"
                          :style="{
@@ -396,10 +389,12 @@ watch(() => store.currentProject, (newProject) => {
                                     
                                     <!-- Image Block with updated src -->
                                     <figure v-if="block.block_type === 'image'" v-scroll-animate>
-                                        <img v-lazy-load
-                                             :data-src="block.image" 
-                                             :alt="block.image_caption || ''"
-                                             class="w-full h-auto rounded-lg shadow mb-4">
+                                        <img 
+                                            :src="getImagePath(block.image)"
+                                            :alt="block.image_caption || ''"
+                                            class="w-full h-auto rounded-lg shadow mb-4"
+                                            @load="handleImageLoad"
+                                        >
                                         <figcaption v-if="block.image_caption" 
                                                   class="mt-2 text-[14px] text-black font-roboto font-extralight italic text-center">
                                             {{ block.image_caption }}
