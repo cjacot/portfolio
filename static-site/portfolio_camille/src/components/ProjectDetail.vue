@@ -155,32 +155,33 @@ onUnmounted(() => {
 // Modified scroll animation directive with initial visibility option
 const vScrollAnimate = {
   mounted: (el: HTMLElement, binding: any) => {
-    // Check if this element should be initially visible
     const initiallyVisible = binding.value?.initiallyVisible || false
     
-    const { isVisible, observer } = observe(el)
-    if (observer) {
-      observers.value.push(observer)
-    }
-    
     if (initiallyVisible) {
-      // Make element visible immediately
       el.style.opacity = '1'
       el.style.transform = 'translateY(0)'
-    } else {
-      // Apply animation setup
+      return // Skip animation for initially visible elements
+    }
+
+    // Only apply animation to non-button elements
+    if (el.tagName !== 'BUTTON') {
       el.style.opacity = '0'
       el.style.transform = 'translateY(20px)'
       const duration = 0.5 + Math.random() * 0.3
       el.style.transition = `opacity ${duration}s ease-out, transform ${duration}s ease-out`
-    }
-    
-    watch(isVisible, (value) => {
-      if (value) {
-        el.style.opacity = '1'
-        el.style.transform = 'translateY(0)'
+      
+      const { isVisible, observer } = observe(el)
+      if (observer) {
+        observers.value.push(observer)
       }
-    })
+      
+      watch(isVisible, (value) => {
+        if (value) {
+          el.style.opacity = '1'
+          el.style.transform = 'translateY(0)'
+        }
+      })
+    }
   }
 }
 
@@ -337,7 +338,7 @@ watch(() => store.currentProject, (newProject) => {
                             v-scroll-animate
                             :class="[
                                 stepColors[step.step_type] || 'bg-gray-200',
-                                'min-h-[61px] rounded-[8px] border-2 border-solid border-black font-roboto text-[30px] font-normal text-black transition-transform hover:scale-105 flex items-center justify-center px-[9px] py-[11px] whitespace-nowrap shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
+                                'min-h-[61px] rounded-[8px] border-2 border-solid border-black font-roboto text-[30px] font-normal text-black transition-transform hover:scale-105 active:scale-100 touch-manipulation cursor-pointer flex items-center justify-center px-[9px] py-[11px] whitespace-nowrap shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
                             ]"
                             @click="scrollToStep(step.step_type)"
                         >
