@@ -79,11 +79,14 @@ const totalImages = ref(0)
 const isFullyLoaded = ref(false)
 
 const scrollToStep = async (stepType: string) => {
+    console.log('Attempting to scroll to:', stepType)
+    
     // Wait for next tick to ensure DOM is updated
     await nextTick()
     
     // If page isn't fully loaded, wait for images
     if (!isFullyLoaded.value) {
+        console.log('Waiting for images to load...')
         await new Promise((resolve) => {
             const checkLoading = setInterval(() => {
                 if (isFullyLoaded.value) {
@@ -95,15 +98,12 @@ const scrollToStep = async (stepType: string) => {
     }
 
     const element = document.getElementById('step-' + stepType)
+    console.log('Found element:', element)
+    
     if (element) {
-        // Get the header height to offset the scroll
-        const headerHeight = 84 // Height of your fixed header
-        const elementPosition = element.getBoundingClientRect().top
-        const offsetPosition = elementPosition + window.pageYOffset - headerHeight
-
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
+        element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
         })
     } else {
         console.error(`Element with id 'step-${stepType}' not found`)
