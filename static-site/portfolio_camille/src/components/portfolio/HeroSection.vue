@@ -80,6 +80,7 @@ section {
     border-top-width: 64px;
     border-left-width: 16px;
     border-right-width: 16px;
+    border-color: transparent;
   }
 }
 </style> 
