@@ -79,34 +79,23 @@ const totalImages = ref(0)
 const isFullyLoaded = ref(false)
 
 const scrollToStep = async (stepType: string) => {
-    console.log('Attempting to scroll to:', stepType)
+    console.log('Button clicked for step type:', stepType)
+    console.log('Looking for element with ID:', `step-${stepType}`)
     
-    // Wait for next tick to ensure DOM is updated
-    await nextTick()
-    
-    // If page isn't fully loaded, wait for images
-    if (!isFullyLoaded.value) {
-        console.log('Waiting for images to load...')
-        await new Promise((resolve) => {
-            const checkLoading = setInterval(() => {
-                if (isFullyLoaded.value) {
-                    clearInterval(checkLoading)
-                    resolve(true)
-                }
-            }, 100)
-        })
-    }
-
     const element = document.getElementById('step-' + stepType)
     console.log('Found element:', element)
     
     if (element) {
+        console.log('Scrolling to element')
         element.scrollIntoView({ 
             behavior: 'smooth',
             block: 'start'
         })
     } else {
-        console.error(`Element with id 'step-${stepType}' not found`)
+        console.error(`Element with id 'step-${stepType}' not found. Available IDs:`, 
+            Array.from(document.querySelectorAll('[id^="step-"]'))
+                .map(el => el.id)
+        )
     }
 }
 
