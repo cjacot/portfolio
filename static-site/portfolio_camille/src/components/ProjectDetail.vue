@@ -261,7 +261,8 @@ watch(() => store.currentProject, (newProject) => {
 
                 <div v-scroll-animate="{ initiallyVisible: true }" class="flex justify-center mb-12">
                     <img v-if="store.currentProject.main_image" 
-                         :src="store.currentProject.main_image" 
+                         v-lazy-load
+                         :data-src="store.currentProject.main_image" 
                          :alt="store.currentProject.title"
                          class="w-full max-w-[952px] max-h-[381px] object-cover rounded-lg shadow-lg"
                          :style="{
