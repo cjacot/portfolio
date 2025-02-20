@@ -12,7 +12,7 @@ const __dirname = resolve(__filename, '..')
 const repo = 'portfolio_camille' // Replace with your actual repository name
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/portfolio/' : '/',
+  base: '/portfolio/',
   server: {
     host: 'localhost',
     port: 5173,
@@ -50,6 +50,8 @@ export default defineConfig({
   },
   publicDir: 'public',
   build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
