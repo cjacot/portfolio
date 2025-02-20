@@ -12,6 +12,19 @@ const __dirname = resolve(__filename, '..')
 const repo = 'portfolio_camille' // Replace with your actual repository name
 
 export default defineConfig({
+  plugins: [
+    vue(),
+    {
+      name: 'configure-response-headers',
+      configureServer: (server) => {
+        server.middlewares.use((_req, res, next) => {
+          res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+          res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+          next();
+        });
+      },
+    },
+  ],
   base: '/portfolio/',
   server: {
     host: 'localhost',
@@ -26,19 +39,6 @@ export default defineConfig({
       'Cross-Origin-Opener-Policy': 'same-origin'
     }
   },
-  plugins: [
-    vue(),
-    {
-      name: 'configure-response-headers',
-      configureServer: (server) => {
-        server.middlewares.use((_req, res, next) => {
-          res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
-          res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
-          next();
-        });
-      },
-    },
-  ],
   resolve: {
     alias: {
       path: 'path-browserify',
