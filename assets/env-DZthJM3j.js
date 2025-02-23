@@ -1,1 +1,0 @@
-const r={BASE_URL:"/portfolio/",DEV:!1,MODE:"production",PROD:!0,SSR:!1,VITE_ADMIN_PASSWORD:"c4m1ll3_p0rtf0l10_2024",VITE_ENCRYPTION_KEY:"your-secret-encryption-key-2024 "},e=_=>{const t=r[_];if(!t)throw new Error(`Environment variable ${_} is not defined`);return t},E={ADMIN_PASSWORD:e("VITE_ADMIN_PASSWORD"),ENCRYPTION_KEY:e("VITE_ENCRYPTION_KEY")};export{E};
