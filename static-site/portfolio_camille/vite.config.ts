@@ -25,7 +25,7 @@ export default defineConfig({
       },
     },
   ],
-  base: '/portfolio/',
+  base: '/',
   server: {
     host: 'localhost',
     port: 5173,

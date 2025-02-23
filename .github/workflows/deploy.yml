@@ -38,6 +38,10 @@ jobs:
           echo "VITE_ADMIN_PASSWORD=${{ secrets.VITE_ADMIN_PASSWORD }}" >> .env.production
           echo "VITE_ENCRYPTION_KEY=${{ secrets.VITE_ENCRYPTION_KEY }}" >> .env.production
 
+      - name: Create CNAME file 🌐
+        working-directory: static-site/portfolio_camille/public
+        run: echo "camillejacot.com" > CNAME
+
       - name: Build 🏗️
         working-directory: static-site/portfolio_camille
         run: npm run build
