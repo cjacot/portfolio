@@ -64,7 +64,8 @@ export default defineConfig({
           }
           return 'assets/[name]-[hash][extname]'
         },
-        external: ['/sql/sql-wasm.wasm']
+        external: ['/sql/sql-wasm.wasm'],
+        manualChunks: undefined
       },
       input: {
         main: resolve(__dirname, 'index.html'),

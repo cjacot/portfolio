@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-      // Get the current path excluding the base
-      const segment = location.pathname.replace('/portfolio/', '');
+      // Remove the portfolio prefix
+      const segment = location.pathname.replace('/', '');
       // Redirect to the main page with the segment as a route parameter
       sessionStorage.setItem('redirect', segment);
-      location.replace('/portfolio/');
+      location.replace('/');
     </script>
   </head>
 </html> 

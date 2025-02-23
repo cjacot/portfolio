@@ -33,11 +33,9 @@ const routes = [
     }
 ]
 
-// Get the base URL from Vite environment variables or default to '/'
-const base = import.meta.env.BASE_URL || '/'
+const base = '/'
 
 const router = createRouter({
-    // Use the base URL in history
     history: createWebHistory(base),
     routes,
     scrollBehavior(to, from, savedPosition) {
