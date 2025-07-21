@@ -67,12 +67,13 @@ export const useProjectStore = defineStore('project', {
           main_image: project.main_image.startsWith('/') ? project.main_image : `/images/${project.main_image}`,
           design_steps: project.design_steps.map(step => ({
             ...step,
+            step_type: step.step_type as 'empathy' | 'definition' | 'ideation' | 'prototype' | 'testing',
             content_blocks: step.content_blocks.map(block => ({
               ...block,
               image: block.image ? (block.image.startsWith('/') ? block.image : `/images/${block.image}`) : ''
             }))
           }))
-        }))
+        })) as Project[]
       } catch (error) {
         console.error('Error fetching projects:', error)
         this.error = 'Failed to load projects'
@@ -100,6 +101,7 @@ export const useProjectStore = defineStore('project', {
           main_image: project.main_image.startsWith('/') ? project.main_image : `/images/${project.main_image}`,
           design_steps: project.design_steps.map(step => ({
             ...step,
+            step_type: step.step_type as 'empathy' | 'definition' | 'ideation' | 'prototype' | 'testing',
             step_type_display: this.getStepTypeDisplay(step.step_type),
             content_blocks: step.content_blocks.map(block => ({
               ...block,
