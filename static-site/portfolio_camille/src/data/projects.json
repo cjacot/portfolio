@@ -23,38 +23,8 @@
       ],
       "design_steps": [
         {
-          "id": 6,
-          "project_id": 1,
-          "step_type": "empathy",
-          "custom_description": "Comprendre les comportements et attentes des utilisateurs",
-          "content_blocks": [
-            {
-              "id": 24,
-              "design_step_id": 6,
-              "block_type": "text",
-              "layout": "full",
-              "group": 0,
-              "order": 0,
-              "text_content": "##Contexte et Observations\r\nEn analysant les newsletters, j'ai remarqué que les utilisateurs étaient parfois perdus face à la quantité d'options de clic. Beaucoup d'entre eux semblaient utiliser l'infolettre comme un moyen de naviguer vers le site web sans réelle intention d'achat, faute de CTAs clairs.\r\n\r\n##Insights\r\nLes utilisateurs pourraient être mieux servis par une interface moins surchargée et des CTAs plus ciblés, en fonction de l'étape du parcours client (découverte, intérêt, considération, décision).",
-              "image": "",
-              "image_caption": null
-            },
-            {
-              "id": 25,
-              "design_step_id": 6,
-              "block_type": "image",
-              "layout": "full",
-              "group": 0,
-              "order": 1,
-              "text_content": "",
-              "image": "content_blocks/infolettre_original.png",
-              "image_caption": "Infolettre originale"
-            }
-          ]
-        },
-        {
           "id": 7,
-          "project_id": 2,
+          "project_id": 1,
           "step_type": "definition",
           "custom_description": "Définir les problématiques spécifiques à résoudre pour orienter le design.",
           "content_blocks": [
@@ -94,8 +64,38 @@
           ]
         },
         {
+          "id": 6,
+          "project_id": 1,
+          "step_type": "empathy",
+          "custom_description": "Comprendre les comportements et attentes des utilisateurs",
+          "content_blocks": [
+            {
+              "id": 24,
+              "design_step_id": 6,
+              "block_type": "text",
+              "layout": "full",
+              "group": 0,
+              "order": 0,
+              "text_content": "##Contexte et Observations\r\nEn analysant les newsletters, j'ai remarqué que les utilisateurs étaient parfois perdus face à la quantité d'options de clic. Beaucoup d'entre eux semblaient utiliser l'infolettre comme un moyen de naviguer vers le site web sans réelle intention d'achat, faute de CTAs clairs.\r\n\r\n##Insights\r\nLes utilisateurs pourraient être mieux servis par une interface moins surchargée et des CTAs plus ciblés, en fonction de l'étape du parcours client (découverte, intérêt, considération, décision).",
+              "image": "",
+              "image_caption": null
+            },
+            {
+              "id": 25,
+              "design_step_id": 6,
+              "block_type": "image",
+              "layout": "full",
+              "group": 0,
+              "order": 1,
+              "text_content": "",
+              "image": "content_blocks/infolettre_original.png",
+              "image_caption": "Infolettre originale"
+            }
+          ]
+        },
+        {
           "id": 8,
-          "project_id": 2,
+          "project_id": 1,
           "step_type": "ideation",
           "custom_description": "Explorer différentes solutions de design",
           "content_blocks": [
@@ -125,7 +125,7 @@
         },
         {
           "id": 9,
-          "project_id": 2,
+          "project_id": 1,
           "step_type": "prototype",
           "custom_description": "Conception de la nouvelle infolettre",
           "content_blocks": [
@@ -210,7 +210,7 @@
         },
         {
           "id": 10,
-          "project_id": 2,
+          "project_id": 1,
           "step_type": "testing",
           "custom_description": "Validation du Prototype",
           "content_blocks": [
