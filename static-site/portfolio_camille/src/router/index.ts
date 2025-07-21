@@ -5,6 +5,11 @@ import ProjectDetail from '../components/ProjectDetail.vue'
 import ContactForm from '../components/ContactForm.vue'
 import NotFound from '../components/portfolio/NotFound.vue'
 
+// Only import admin component in development
+const AdminPanel = import.meta.env.DEV 
+  ? () => import('../components/admin/AdminPanel.vue')
+  : null
+
 const routes = [
     {
         path: '/',
@@ -26,6 +31,20 @@ const routes = [
         name: 'project-detail',
         component: ProjectDetail
     },
+    // Development-only admin route
+    ...(import.meta.env.DEV && AdminPanel ? [{
+        path: '/dev-admin',
+        name: 'dev-admin',
+        component: AdminPanel,
+        beforeEnter: (to, from, next) => {
+            // Double-check we're in development
+            if (import.meta.env.DEV) {
+                next()
+            } else {
+                next('/404')
+            }
+        }
+    }] : []),
     {
         path: '/:pathMatch(.*)*',
         name: 'not-found',
