@@ -9,6 +9,11 @@ const isDesktop = computed(() => {
   return window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 768px)').matches
 })
 
+// Computed property for development mode check
+const isDevelopment = computed(() => {
+  return import.meta.env.DEV
+})
+
 // Load initial state
 onMounted(() => {
   // Explicitly set default state in localStorage if it doesn't exist
@@ -81,6 +86,15 @@ const toggleCursor = () => {
           <router-link to="/#projects" class="hover:underline">Projets</router-link>
           <router-link :to="{ name: 'about' }" class="hover:underline">À propos</router-link>
           <router-link to="/#cv" class="hover:underline">CV</router-link>
+          <!-- Development-only admin link -->
+          <router-link 
+            v-if="isDevelopment" 
+            to="/dev-admin" 
+            class="hover:underline text-orange-600 text-sm"
+            title="Development Admin Panel"
+          >
+            🛠️ Admin
+          </router-link>
         </div>
         
         <!-- Cursor Toggle Button - Only show on desktop -->
