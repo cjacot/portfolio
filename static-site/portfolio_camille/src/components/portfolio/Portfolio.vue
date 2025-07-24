@@ -49,12 +49,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col overflow-hidden items-center bg-[#FFFCF6]">
+  <div class="flex flex-col overflow-hidden items-center bg-white">
     <CustomCursor />
     <PortfolioHeader />
     <HeroSection />
     
-    <section id="projects" class="w-full my-32 max-w-[1440px] px-4 flex flex-col items-center bg-[#FFFCF6]">
+    <section id="projects" class="w-full my-32 max-w-[1440px] px-4 flex flex-col items-center bg-white">
       <!-- Loading State -->
       <div v-if="store.loading" class="flex flex-col gap-8 w-full items-center">
         <SkeletonLoader v-for="n in 2" :key="n" class="w-full max-w-[1064px] h-[408px]" />

@@ -13,7 +13,7 @@ const scrollToSection = (sectionId: string) => {
 </script>
 
 <template>
-  <header class="fixed top-0 left-0 right-0 z-50 bg-[#FFFCF6]">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white">
     <nav class="container mx-auto px-4 py-4">
       <ul class="flex space-x-8">
         <li v-for="section in sections" :key="section">

@@ -80,7 +80,7 @@ const menuItems = [
     >
       <div 
         v-show="isOpen"
-        class="absolute left-0 right-0 mt-2 py-2 bg-[#FFFCF6] shadow-lg z-50"
+        class="absolute left-0 right-0 mt-2 py-2 bg-white shadow-lg z-50"
       >
         <div class="flex flex-col items-center gap-4">
           <a 
