@@ -2,20 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Variables CSS du thème */
+:root {
+  /* Couleurs */
+  --theme-bg: #ffffff;
+  --theme-text: #1E1E1E;
+  --theme-yellow: #FFC567;
+  --theme-blue: #91A8EC;
+  --theme-green: #22A092;
+  --theme-red: #FF6D52;
+  
+  /* Polices */
+  --theme-font: 'Roboto', sans-serif;
+  
+  /* Tailles de texte */
+  --theme-intro-size: 48px;
+  --theme-text-size: 20px;
+  --theme-section-size: 36px;
+}
+
 /* Custom base styles */
 @layer base {
   html {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--theme-font);
   }
   
   body {
-    @apply bg-[#FFFCF6];
-    color: #1E1E1E;
+    background-color: var(--theme-bg);
+    color: var(--theme-text);
   }
 }
 
-/* Custom components */
+/* Classes utilitaires du thème */
 @layer components {
+  /* Boutons du thème */
+  .btn-theme-yellow {
+    @apply bg-theme-yellow border border-theme-text hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-theme-text transition-all duration-300;
+  }
+  
+  .btn-theme-blue {
+    @apply bg-theme-blue border border-theme-text hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-theme-text transition-all duration-300;
+  }
+  
+  .btn-theme-green {
+    @apply bg-theme-green border border-theme-text hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-theme-text transition-all duration-300;
+  }
+  
+  .btn-theme-red {
+    @apply bg-theme-red border border-theme-text hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-theme-text transition-all duration-300;
+  }
+  
+  /* Typographies du thème */
+  .text-theme-intro {
+    font-size: var(--theme-intro-size);
+    font-weight: 200;
+    line-height: 1.2;
+    color: var(--theme-text);
+  }
+  
+  .text-theme-body {
+    font-size: var(--theme-text-size);
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--theme-text);
+  }
+  
+  .text-theme-section {
+    font-size: var(--theme-section-size);
+    font-weight: 300;
+    line-height: 1.3;
+    color: var(--theme-text);
+  }
+  
+  /* Transitions des pages */
   .page-transition-enter-active,
   .page-transition-leave-active {
     transition: opacity 0.3s ease;
