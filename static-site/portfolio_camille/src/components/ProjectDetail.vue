@@ -66,11 +66,11 @@ const groupedBlocks = (blocks) => {
     }, {}) || {};
 };
 
-const stepColors = {
-  'empathy': 'bg-[#FFC567]',
-  'definition': 'bg-[#91A8EC]',
-  'ideation': 'bg-[#22A092]',
-  'prototype': 'bg-[#FF6D52]',
+  const stepColors = {
+    'empathy': 'bg-theme-yellow',
+           'definition': 'bg-theme-blue',
+    'ideation': 'bg-theme-green',
+    'prototype': 'bg-theme-red',
   'testing': 'bg-[#FFFFFF]'
 }
 
@@ -231,7 +231,7 @@ watch(() => store.currentProject, (newProject) => {
 </script> 
 
 <template>
-    <div class="flex flex-col min-h-screen bg-[#FFFCF6] items-center">
+    <div class="flex flex-col min-h-screen bg-white items-center">
         <PortfolioHeader />
         <CustomCursor />
         
@@ -346,11 +346,11 @@ watch(() => store.currentProject, (newProject) => {
                          :id="`step-${step.step_type}`"
                          class="mb-12 scroll-mt-32 p-8 rounded-lg"
                          :class="[
-                             {
-                                 'bg-[#FFC567]/10': step.step_type === 'empathy',
-                                 'bg-[#91A8EC]/10': step.step_type === 'definition',
-                                 'bg-[#22A092]/10': step.step_type === 'ideation',
-                                 'bg-[#FF6D52]/10': step.step_type === 'prototype',
+                                                            {
+                                   'bg-theme-yellow/10': step.step_type === 'empathy',
+                                  'bg-theme-blue/10': step.step_type === 'definition',
+                                   'bg-theme-green/10': step.step_type === 'ideation',
+                                   'bg-theme-red/10': step.step_type === 'prototype',
                                  'bg-[#eaeaea]/10': step.step_type === 'testing'
                              }
                          ]">
@@ -358,11 +358,11 @@ watch(() => store.currentProject, (newProject) => {
                           <div class="inline">
                             <span :class="[
                               'font-normal px-2 py-1 rounded inline-block align-baseline mr-2',
-                              {
-                                'bg-[#FFC567]': step.step_type === 'empathy',
-                                'bg-[#91A8EC]': step.step_type === 'definition',
-                                'bg-[#22A092]': step.step_type === 'ideation',
-                                'bg-[#FF6D52]': step.step_type === 'prototype',
+                                                              {
+                                  'bg-theme-yellow': step.step_type === 'empathy',
+                                 'bg-theme-blue': step.step_type === 'definition',
+                                  'bg-theme-green': step.step_type === 'ideation',
+                                  'bg-theme-red': step.step_type === 'prototype',
                                 'bg-[#FFFFFF]': step.step_type === 'testing'
                               }
                             ]">

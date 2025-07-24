@@ -9,11 +9,11 @@
                 <div :class="[
                     'rounded transition-all duration-200',
                     activeStep === step.step_type ? 'h-1 w-6' : 'h-0.5 w-4',
-                    {
-                        'bg-[#FFC567]': step.step_type === 'empathy',
-                        'bg-[#91A8EC]': step.step_type === 'definition',
-                        'bg-[#22A092]': step.step_type === 'ideation',
-                        'bg-[#FF6D52]': step.step_type === 'prototype',
+                                          {
+                          'bg-theme-yellow': step.step_type === 'empathy',
+                         'bg-theme-blue': step.step_type === 'definition',
+                          'bg-theme-green': step.step_type === 'ideation',
+                          'bg-theme-red': step.step_type === 'prototype',
                         'bg-[#eaeaea]': step.step_type === 'testing',
                     }
                 ]"></div>
@@ -30,11 +30,11 @@
                         @click="scrollToStep(step.step_type)"
                         :class="[
                             'block w-full text-left px-2 py-1 text-sm rounded transition-colors duration-200',
-                            {
-                                'bg-[#FFC567]/10 hover:bg-[#FFC567]/20': step.step_type === 'empathy',
-                                'bg-[#91A8EC]/10 hover:bg-[#91A8EC]/20': step.step_type === 'definition',
-                                'bg-[#22A092]/10 hover:bg-[#22A092]/20': step.step_type === 'ideation',
-                                'bg-[#FF6D52]/10 hover:bg-[#FF6D52]/20': step.step_type === 'prototype',
+                                                          {
+                                  'bg-theme-yellow/10 hover:bg-theme-yellow/20': step.step_type === 'empathy',
+                                 'bg-theme-blue/10 hover:bg-theme-blue/20': step.step_type === 'definition',
+                                  'bg-theme-green/10 hover:bg-theme-green/20': step.step_type === 'ideation',
+                                  'bg-theme-red/10 hover:bg-theme-red/20': step.step_type === 'prototype',
                                 'bg-[#eaeaea] hover:bg-gray-100': step.step_type === 'testing'
                             },
                             activeStep === step.step_type ? 'font-medium' : 'font-normal'
