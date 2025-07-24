@@ -222,7 +222,7 @@ const validateForm = (): boolean => {
 </script>
 
 <template>
-  <div class="flex justify-center items-center min-h-screen bg-[#FFFCF6]">
+  <div class="flex justify-center items-center min-h-screen bg-white">
     <CustomCursor />
     <PortfolioHeader />
     <div class="w-full max-w-[615px] mx-4 my-8 md:my-32 bg-white rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] p-4 md:p-8 flex flex-col items-center">
@@ -287,7 +287,7 @@ const validateForm = (): boolean => {
             
           <button 
             type="submit"
-            class="contact-button relative w-full h-[45px] md:h-[49px] bg-[#91A8EC] border border-black hover:bg-[#7A8FD9] focus:outline-none focus:ring-2 focus:ring-black text-base md:text-lg"
+            class="contact-button relative w-full h-[45px] md:h-[49px] btn-theme-blue text-base md:text-lg"
             @mouseenter="isHovering = true"
             @mouseleave="resetButton"
             @mousemove="handleMouseMove"

@@ -30,8 +30,8 @@ const handleImageError = (event: Event) => {
     >
       <!-- Left column: Text content -->
       <div class="flex flex-col items-start self-stretch mb-8 md:mb-0 md:pr-16 text-black w-full md:w-[389px]">
-        <h3 class="text-4xl font-extralight">{{ title }}</h3>
-        <p class="mt-7 text-2xl font-light">{{ description }}</p>
+        <h3 class="text-theme-section font-light">{{ title }}</h3>
+        <p class="mt-7 text-theme-body font-light">{{ description }}</p>
       </div>
 
       <!-- Right column: Image -->

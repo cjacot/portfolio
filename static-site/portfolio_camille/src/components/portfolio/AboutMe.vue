@@ -34,22 +34,22 @@ import aboutImageUrl from '../../assets/images/about-image.jpg'
 
 <template>
   <PortfolioHeader />
-  <div class="flex flex-col overflow-hidden items-center bg-[#FFFCF6]">
+  <div class="flex flex-col overflow-hidden items-center bg-white">
     <CustomCursor />
     <main class="container px-4 pt-8 flex flex-col items-center">
       <div class="flex flex-col md:flex-row gap-8 items-center max-w-[800px]">
         <!-- Text section - adjusted width -->
         <div class="flex-1 space-y-6 md:w-[400px]">
-          <p class="text-lg">
+          <p class="text-theme-body">
             👋 Bonjour ! Je m'appelle Camille. Passionnée par le design UX/UI, j'ai découvert cet univers grâce à la certification Google UX Design. Depuis, je me consacre à créer des expériences utilisateur simples, intuitives et agréables.
           </p>
-          <p class="text-lg">
+          <p class="text-theme-body">
             🎨 Ce que j'aime dans l'UX/UI, c'est l'équilibre entre la créativité et la réflexion stratégique. Chaque projet est une opportunité de résoudre des problèmes tout en exprimant mon sens du design.
           </p>
-          <p class="text-lg">
+          <p class="text-theme-body">
             🌱 En dehors du design, je trouve mon inspiration dans mes passions. Très touchée par la cause animale, je travaille avec le plus grand refuge canadien en tant que famille d'accueil pour chats, j'entretiens avec soin mes plantes d'intérieur, et j'adore cuisiner. À mes heures perdues, je prends aussi plaisir à peindre et à dessiner, des activités qui nourrissent ma créativité.
           </p>
-          <p class="text-lg">
+          <p class="text-theme-body">
             🔎 Si vous souhaitez en savoir plus sur mon parcours ou découvrir mes projets, parcourez mon portfolio ou contactez-moi. J'adorerais échanger avec vous !
           </p>
         </div>
@@ -79,7 +79,7 @@ import aboutImageUrl from '../../assets/images/about-image.jpg'
           
           <router-link to="/contact">
           <button 
-            class="contact-button relative w-full px-3.5 py-3.5 bg-orange-300 border border-black hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-black"
+            class="contact-button relative w-full px-3.5 py-3.5 btn-theme-yellow"
             @mouseenter="isHovering = true"
             @mouseleave="resetButton"
             @mousemove="handleMouseMove"

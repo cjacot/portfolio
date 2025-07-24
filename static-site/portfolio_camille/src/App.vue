@@ -45,12 +45,12 @@ const afterEnter = (el: Element) => {
 
 .app-container {
   min-height: 100vh;
-  background-color: #FFFCF6;
+  background-color: var(--theme-bg);
 }
 
 /* Add global styles */
 body {
-  font-family: 'Roboto', sans-serif;
-  color: #1E1E1E;
+  font-family: var(--theme-font);
+  color: var(--theme-text);
 }
 </style>
