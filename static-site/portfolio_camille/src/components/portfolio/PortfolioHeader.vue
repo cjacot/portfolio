@@ -73,11 +73,11 @@ const toggleCursor = () => {
 </script>
 
 <template>
-  <header class="fixed top-0 left-0 right-0 z-50 bg-[#FFFCF6] shadow-[0_2px_4px_rgba(0,0,0,0.05)]">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-[0_2px_4px_rgba(0,0,0,0.05)]">
     <div class="flex justify-between items-center h-[84px] px-4 lg:px-[45px]">
       <!-- Logo -->
       <router-link to="/" class="hover:underline">
-        <h1 class="text-2xl">Camille Jacot</h1>
+        <h1 class="text-2xl font-light">Camille Jacot</h1>
       </router-link>
 
       <!-- Desktop Navigation -->
@@ -97,17 +97,7 @@ const toggleCursor = () => {
           </router-link>
         </div>
         
-        <!-- Cursor Toggle Button - Only show on desktop -->
-        <div v-show="isDesktop" class="cursor-toggle ml-4">
-          <button
-            @click="toggleCursor"
-            class="px-3 py-1 bg-[#FFFCF6] border border-black rounded-full hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-black transition-colors duration-300"
-          >
-            <span class="text-sm">
-              {{ isCustomCursorEnabled ? '🐱' : '👆' }}
-            </span>
-          </button>
-        </div>
+
       </nav>
 
       <!-- Mobile Menu -->
