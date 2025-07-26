@@ -63,14 +63,14 @@ export const useProjectStore = defineStore('project', {
         // Format image paths and ensure all required fields
         this.projects = projectsData.projects.map(project => ({
           ...project,
-          preview_image: project.preview_image.startsWith('/') ? project.preview_image : `/images/${project.preview_image}`,
-          main_image: project.main_image.startsWith('/') ? project.main_image : `/images/${project.main_image}`,
+          preview_image: project.preview_image,
+          main_image: project.main_image,
           design_steps: project.design_steps.map(step => ({
             ...step,
             step_type: step.step_type as 'empathy' | 'definition' | 'ideation' | 'prototype' | 'testing',
             content_blocks: step.content_blocks.map(block => ({
               ...block,
-              image: block.image ? (block.image.startsWith('/') ? block.image : `/images/${block.image}`) : ''
+              image: block.image || ''
             }))
           }))
         })) as Project[]
@@ -97,15 +97,15 @@ export const useProjectStore = defineStore('project', {
         // Format the project data
         this.currentProject = {
           ...project,
-          preview_image: project.preview_image.startsWith('/') ? project.preview_image : `/images/${project.preview_image}`,
-          main_image: project.main_image.startsWith('/') ? project.main_image : `/images/${project.main_image}`,
+          preview_image: project.preview_image,
+          main_image: project.main_image,
           design_steps: project.design_steps.map(step => ({
             ...step,
             step_type: step.step_type as 'empathy' | 'definition' | 'ideation' | 'prototype' | 'testing',
             step_type_display: this.getStepTypeDisplay(step.step_type),
             content_blocks: step.content_blocks.map(block => ({
               ...block,
-              image: block.image ? (block.image.startsWith('/') ? block.image : `/images/${block.image}`) : ''
+              image: block.image || ''
             }))
           }))
         }
