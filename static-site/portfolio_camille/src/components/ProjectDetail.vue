@@ -14,24 +14,7 @@ const route = useRoute()
 const router = useRouter()
 const store = useProjectStore()
 
-// Dynamic image imports for different types
-const projectImages = import.meta.glob('../assets/images/**/*.{png,jpg,jpeg}', {
-  eager: true,
-  import: 'default'
-})
-
-// Create mapping for all project images
-const imageMap = Object.entries(projectImages).reduce((acc, [path, module]) => {
-  // Extract the path after 'images/'
-  const pathParts = path.split('images/')
-  if (pathParts.length > 1) {
-    const projectPath = pathParts[1]
-    // Store both with and without /images/ prefix
-    acc[projectPath] = module
-    acc[`/images/${projectPath}`] = module
-  }
-  return acc
-}, {} as Record<string, string>)
+// Simplified image handling using public assets
 
 const loading = ref(true)
 const error = ref<string | null>(null)
@@ -205,11 +188,15 @@ const getImageDimensions = (image: string) => {
 // Replace getImagePath function
 function getImagePath(path: string): string {
   if (!path) return ''
-  // Log the incoming path and the found URL for debugging
-  console.log('Looking for path:', path)
-  const imageUrl = imageMap[path]
-  console.log('Found URL:', imageUrl)
-  return imageUrl || ''
+  
+  // Log the incoming path for debugging
+  console.log('Looking for image path:', path)
+  
+  // Use public assets path directly
+  const publicPath = `/assets/images/${path}`
+  console.log('Using public path:', publicPath)
+  
+  return publicPath
 }
 
 // Modify the lazy load directive
@@ -261,8 +248,7 @@ watch(() => store.currentProject, (newProject) => {
 
                 <div v-scroll-animate="{ initiallyVisible: true }" class="flex justify-center mb-12">
                     <img v-if="store.currentProject.main_image" 
-                         v-lazy-load
-                         :data-src="store.currentProject.main_image" 
+                         :src="getImagePath(store.currentProject.main_image)" 
                          :alt="store.currentProject.title"
                          class="w-full max-w-[952px] max-h-[381px] object-cover rounded-lg shadow-lg"
                          :style="{
@@ -344,16 +330,7 @@ watch(() => store.currentProject, (newProject) => {
                     <div v-for="step in store.currentProject.design_steps" 
                          :key="step.id" 
                          :id="`step-${step.step_type}`"
-                         class="mb-12 scroll-mt-32 p-8 rounded-lg"
-                         :class="[
-                                                            {
-                                   'bg-theme-yellow/10': step.step_type === 'empathy',
-                                  'bg-theme-blue/10': step.step_type === 'definition',
-                                   'bg-theme-green/10': step.step_type === 'ideation',
-                                   'bg-theme-red/10': step.step_type === 'prototype',
-                                 'bg-[#eaeaea]/10': step.step_type === 'testing'
-                             }
-                         ]">
+                         class="mb-12 scroll-mt-32 p-8 rounded-lg">
                         <h3 v-scroll-animate class="text-[28px] font-light font-roboto leading-[35px] mb-12">
                           <div class="inline">
                             <span :class="[
@@ -376,11 +353,11 @@ watch(() => store.currentProject, (newProject) => {
                         
                         <template v-for="(blocks, group) in groupedBlocks(step.content_blocks)" 
                                   :key="group">
-                            <div :class="{'grid md:grid-cols-2 gap-6': blocks.length > 1}" 
+                            <div :class="{'grid md:grid-cols-2 gap-6': blocks.length > 1, 'flex justify-center': blocks.length === 1 && blocks[0].layout === 'half'}" 
                                  class="mb-6">
                                 <div v-for="block in blocks" 
                                      :key="block.id"
-                                     :class="{'col-span-2': block.layout === 'full'}">
+                                     :class="{'col-span-2': block.layout === 'full', 'max-w-md': blocks.length === 1 && block.layout === 'half'}">
                                     <!-- Text Block with animation -->
                                     <div v-if="block.block_type === 'text'" 
                                          v-scroll-animate 
