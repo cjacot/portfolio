@@ -10,37 +10,17 @@ import { useProjectStore } from '../../store/project'
 
 const store = useProjectStore()
 
-// Dynamically import all preview images
-const previewImages = import.meta.glob('../../assets/images/previews/*.png', {
-  eager: true,
-  import: 'default'
-})
-
-// Create dynamic mapping based on file names
-const imageMap = Object.entries(previewImages).reduce((acc, [path, module]) => {
-  // Extract the relevant part of the path that matches projects.json
-  const pathParts = path.split('previews/')
-  if (pathParts.length > 1) {
-    const projectPath = `previews/${pathParts[1]}`
-    // Store both with and without /images/ prefix
-    acc[projectPath] = module
-    acc[`/images/${projectPath}`] = module
-  }
-  return acc
-}, {} as Record<string, string>)
-
-// Debug log to see our mappings
-console.log('Image mappings:', imageMap)
-
 function getImagePath(path: string): string {
   if (!path) return ''
   
-  // Log the incoming path and the found URL
-  console.log('Looking for path:', path)
-  const imageUrl = imageMap[path]
-  console.log('Found URL:', imageUrl)
+  // Log the incoming path for debugging
+  console.log('Looking for image path:', path)
   
-  return imageUrl || ''
+  // Use public assets path directly
+  const publicPath = `/assets/images/${path}`
+  console.log('Using public path:', publicPath)
+  
+  return publicPath
 }
 
 onMounted(() => {
