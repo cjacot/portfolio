@@ -9,6 +9,7 @@ import CustomCursor from '../utilities/CustomCursor.vue'
 import Footer from './portfolio/Footer.vue'
 import { useScrollAnimation } from '../composables/useScrollAnimation'
 import { computed } from 'vue'
+import PhoneMockup from './portfolio/PhoneMockup.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -38,6 +39,22 @@ const getStepTypeDisplay = (type) => {
         'testing': 'Tests'
     };
     return types[type] || type;
+};
+
+const isPhoneMockupBlock = (stepType: string, project_id: number, caption: string | null) => {
+  if (project_id !== 1) return false;
+  
+  const prototypeCaption = "Design final";
+
+  if (stepType === 'empathy' || stepType === 'ideation') {
+    return true;
+  }
+
+  if (stepType === 'prototype' && caption === prototypeCaption) {
+    return true;
+  }
+  
+  return false;
 };
 
 const groupedBlocks = (blocks) => {
@@ -189,12 +206,8 @@ const getImageDimensions = (image: string) => {
 function getImagePath(path: string): string {
   if (!path) return ''
   
-  // Log the incoming path for debugging
-  console.log('Looking for image path:', path)
-  
   // Use public assets path directly
   const publicPath = `/assets/images/${path}`
-  console.log('Using public path:', publicPath)
   
   return publicPath
 }
@@ -367,7 +380,14 @@ watch(() => store.currentProject, (newProject) => {
                                     
                                     <!-- Image Block with updated src -->
                                     <figure v-if="block.block_type === 'image'" v-scroll-animate>
-                                        <img 
+                                        <PhoneMockup v-if="isPhoneMockupBlock(step.step_type, store.currentProject.id, block.image_caption)">
+                                            <img
+                                                 :src="getImagePath(block.image)" 
+                                                 :alt="block.image_caption || ''"
+                                                 class="w-full h-auto"
+                                            >
+                                        </PhoneMockup>
+                                        <img v-else
                                             :src="getImagePath(block.image)"
                                             :alt="block.image_caption || ''"
                                             class="w-full h-auto rounded-lg shadow mb-4"

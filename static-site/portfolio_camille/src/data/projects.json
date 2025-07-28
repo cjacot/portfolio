@@ -88,7 +88,7 @@
               "group": 0,
               "order": 1,
               "text_content": "",
-              "image": "content_blocks/infolettre_original.png",
+              "image": "content_blocks/empathy.png",
               "image_caption": "Infolettre originale"
             }
           ]
@@ -118,7 +118,7 @@
               "group": 0,
               "order": 1,
               "text_content": "",
-              "image": "content_blocks/premiers_wireframe_infolettre.png",
+              "image": "content_blocks/ideation.png",
               "image_caption": "Premiers wireframes"
             }
           ]
@@ -133,11 +133,11 @@
               "id": 31,
               "design_step_id": 9,
               "block_type": "image",
-              "layout": "half",
+              "layout": "full",
               "group": 0,
               "order": 0,
               "text_content": "",
-              "image": "content_blocks/Design_final_infolettre.png",
+              "image": "content_blocks/prototype.png",
               "image_caption": "Design final"
             },
             {
